@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.easytesting</groupId>
+	<artifactId>fest-util-android</artifactId>
+	<version>1.1.6</version>
+	<packaging>apklib</packaging>
+	<name>FEST Util for Android</name>
+	<description>Utility methods used by FEST modules</description>
+	<inceptionYear>2007</inceptionYear>
+	<url>http://fest.easytesting.org</url>
+	<mailingLists>
+		<mailingList>
+			<name>Easy Testing Group</name>
+			<post>http://groups.google.com/group/easytesting</post>
+			<subscribe>http://groups.google.com/group/easytesting</subscribe>
+			<unsubscribe>http://groups.google.com/group/easytesting</unsubscribe>
+		</mailingList>
+	</mailingLists>
+	<scm>
+		<developerConnection>scm:git:git@github.com:nicstrong/fest-util-android.git</developerConnection>
+		<connection>scm:git:git://github.com/nicstrong/fest-util-android.git</connection>
+		<url>https://github.com/nicstrong/fest-util-android</url>
+	</scm>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>http://jira.codehaus.org/browse/FEST</url>
+	</issueManagement>
+  <distributionManagement>
+    <!-- use the following if you're not using a snapshot version. -->
+    <repository>
+      <id>nexus</id>
+      <url>http://10.101.144.23:8081/nexus/content/repositories/releases</url>
+    </repository>
+    <!-- use the following if you ARE using a snapshot version. -->
+    <snapshotRepository>
+      <id>nexus</id>
+      <url>http://10.101.144.23:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+	<dependencies>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>2.2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>maven-android-plugin</artifactId>
+				<version>2.9.0-beta-1</version>
+				<configuration>
+					<androidManifestFile>${project.basedir}/AndroidManifest.xml</androidManifestFile>
+					<assetsDirectory>${project.basedir}/assets</assetsDirectory>
+					<resourceDirectory>${project.basedir}/res</resourceDirectory>
+					<sdk>
+						<platform>8</platform>
+					</sdk>
+					<deleteConflictingFiles>true</deleteConflictingFiles>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
